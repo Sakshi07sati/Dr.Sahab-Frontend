@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Build output (Vite production build)
+dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Vite cache
+.vite/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Optional local files
+*.local
+*.log
+*.pid
+*.seed
