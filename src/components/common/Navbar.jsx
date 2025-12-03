@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
+import { CartoonButton } from '../ui/cartoon-button';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +15,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="py-5 sticky top-0 z-50">
+      <div className="max-w-7xl bg-blue-50  rounded-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold text-black">LOGO</h1>
@@ -28,7 +29,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-gray-700 hover:text-indigo-600 font-medium transition-colors"
+                className="text-gray-700 text-lg hover:text-indigo-600 font-medium transition-colors"
               >
                 {link.name}
               </Link>
@@ -37,10 +38,11 @@ const Navbar = () => {
 
           {/* Book Appointment Button - Desktop */}
           <div className="hidden md:block">
-            <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2 font-medium">
+            {/* <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-2 font-medium">
               <Calendar size={18} />
               Book Appointment
-            </button>
+            </button> */}
+            <CartoonButton label="Book Appointment" className='bg-primary rounded-lg font-semibold text-white py-2 px-5' onClick={() => {}} />
           </div>
 
           {/* Mobile Menu Button */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Shield, Award, Clock, Star, ArrowRight, Phone, Mail } from 'lucide-react';
+import { CartoonButton } from '../../../components/ui/cartoon-button';
 
 export default function HomePage() {
   const services = [
@@ -68,6 +69,12 @@ export default function HomePage() {
           View Services
         </button>
       </div>
+      <CartoonButton 
+  label="Click me!" 
+  className="bg-red-500 rounded-md py-2 px-6 text-xl font-bold border border-black text-white" 
+  onClick={() => alert('Button clicked!')}
+/>
+
     </div>
 
     {/* Right Image */}

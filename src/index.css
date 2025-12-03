@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #273e66;
+  --secondary: #44E3FF;
+  --third: #23D3A8;
+}
