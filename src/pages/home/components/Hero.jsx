@@ -10,7 +10,7 @@ const Hero = () => {
         {/* GRID OVERLAY */}
         <div
           className="w-full h-full absolute inset-0 opacity-50 z-10 rounded-2xl
-      bg-[linear-gradient(#5b5b5b94_1px,transparent_2px),linear-gradient(90deg,#5b5b5b94_1px,transparent_2px)]
+      bg-[linear-gradient(#ffffff0e_2px,transparent_2px),linear-gradient(90deg,#ffffff0e_2px,transparent_2px)]
       bg-[size:40px_40px]"
         ></div>
 
