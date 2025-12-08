@@ -1,18 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../../api/axiosBase";
+import toast from "react-hot-toast";
 // import api from "../../../api/axiosBase";
 
-export const loginAdmin = createAsyncThunk(
-  "auth/loginAdmin",
+export const loginUser = createAsyncThunk(
+  "auth/loginUser",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       const res = await api.post("/auth/login", { email, password });
-      return res.data; 
-      console.log("Login Response:", res.data);
+
+      const { token, role, user } = res.data;
+
+      // Store token + role
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
+
+      toast.success(`Logged in as ${role}`);
+
+      return res.data;
     } catch (error) {
-      return rejectWithValue(
-        error.response?.data?.message || "Something went wrong!"
-      );
+      const err = error.response?.data?.message || "Invalid email or password!";
+      toast.error(err);
+      return rejectWithValue(err);
     }
   }
 );

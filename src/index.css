@@ -7,3 +7,16 @@
   --secondary: #44E3FF;
   --third: #23D3A8;
 }
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-360-infinite {
+  animation: rotate360 20s linear infinite;
+}

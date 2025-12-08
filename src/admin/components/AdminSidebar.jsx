@@ -11,9 +11,11 @@ import {
   MessageSquare,
   ShoppingBag,
   X,
+  ShoppingCartIcon,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { logout } from "../../global_redux/features/auth/authSlice";
 // import { logout } from "@/global_redux/features/auth/authSlice";
 
 const AdminSidebar = () => {
@@ -41,6 +43,30 @@ const AdminSidebar = () => {
       icon: Users,
       path: "/admin/users",
     },
+    {
+      id: "bookings",
+      name: "Bookings",
+      icon: ShoppingCartIcon,
+      path: "/admin/bookings",
+    },
+    {
+      id: "Clinic",
+      name: "Clinics",
+      icon: Package,
+      // path: "/admin/create-clinic",
+      subItems: [
+        {
+          id: "allClinics",
+          name: "Manage Clinics",
+          path: "/admin/all-clinics",
+        },
+        {
+          id: "createClinic",
+          name: "Create Clinic",
+          path: "/admin/create-clinic",
+        },
+      ],
+    },
   ];
 
   const toggleSubMenu = (itemId) => {
@@ -49,6 +75,13 @@ const AdminSidebar = () => {
     }
     setOpenSubMenu(openSubMenu === itemId ? null : itemId);
   };
+
+  const handleLogout = () => {
+    // Implement logout logic here
+    dispatch(logout());
+    localStorage.removeItem("admintoken");
+    navigate("/admin/login");
+  }
 
   return (
     <div
@@ -147,7 +180,7 @@ const AdminSidebar = () => {
       {/* Logout */}
       <div className="border-t border-gray-800 p-4">
         <button
-        //   onClick={handleLogout}
+          onClick={handleLogout}
           className="w-full flex items-center gap-4 px-4 py-3 hover:bg-gray-800 rounded-lg transition-colors"
         >
           <LogOut className="w-5 h-5 flex-shrink-0" />

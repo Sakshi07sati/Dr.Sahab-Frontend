@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginAdmin } from "./authThunk";
+import { loginUser } from "./authThunk";
 
 const authSlice = createSlice({
   name: "auth",
@@ -20,25 +20,22 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(loginAdmin.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(loginAdmin.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload.admin || action.payload.clinic;
-        state.role = action.payload.role;
-        state.token = action.payload.token;
+      .addCase(loginUser.pending, (state) => {
+  state.loading = true;
+  state.error = null;
+})
+.addCase(loginUser.fulfilled, (state, action) => {
+  state.loading = false;
+  state.user = action.payload.user;
+  state.role = action.payload.role;
 
-        // Save to localStorage
-        localStorage.setItem("auth", JSON.stringify(action.payload));
-        localStorage.setItem("role", action.payload.role);
-        localStorage.setItem("Admintoken", action.payload.token);
-      })
-      .addCase(loginAdmin.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
+  state.token = action.payload.token;
+})
+.addCase(loginUser.rejected, (state, action) => {
+  state.loading = false;
+  state.error = action.payload;
+});
+
   },
 });
 

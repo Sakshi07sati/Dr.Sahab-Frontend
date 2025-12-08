@@ -1,33 +1,49 @@
-import React, { useState } from 'react'
-import { CartoonButton } from '../../../components/ui/cartoon-button'
+import React, { useState } from "react";
+import { CartoonButton } from "../../../components/ui/cartoon-button";
+import { useDispatch, useSelector } from "react-redux";
+import { createBooking } from "../../../global_redux/features/booking/bookingThunk";
+// import { createBooking } from "../../../redux/features/booking/bookingThunk";
 
 const AppointmentForm = () => {
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.booking);
+
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    dob: '',
-    bookingDate: '',
-    address: '',
-    message: ''
-  })
+    name: "",
+    phone: "",
+    dob: "",
+    bookingDate: "",
+    address: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form Data:', formData)
-    // Handle form submission here
-  }
+    e.preventDefault();
+
+    // Map UI form fields → backend fields
+    const payload = {
+      name: formData.name,
+      phone: formData.phone,
+      dob: formData.dob,
+      bookingDate: formData.bookingDate,
+      message: formData.message,
+      location: formData.address, // backend wants "location"
+    };
+
+    dispatch(createBooking(payload));
+  };
 
   return (
     <div className="bg-[#f4f4f4c0] h-full backdrop-blur-xl rounded-3xl p-8 shadow-2xl overflow-y-auto">
       <h2 className="text-2xl font-bold text-black mb-4">Book Your Appointment</h2>
-      
+
       <form onSubmit={handleSubmit} className="space-y-3">
         {/* Name and Phone Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -124,16 +140,14 @@ const AppointmentForm = () => {
         </div>
 
         {/* Submit Button */}
-        {/* <button
-          type="submit"
-          className="w-full bg-white text-red-500 font-bold py-3 rounded-lg hover:bg-gray-100 transition-all shadow-lg"
-        >
-          Book Appointment
-        </button> */}
-        <CartoonButton label="Book Appointment" className='w-full bg-primary text-white font-bold py-3 rounded-xl transition-all shadow-lg' onClick={handleSubmit} />
+        <CartoonButton
+          label={loading ? "Booking..." : "Book Appointment"}
+          className="w-full bg-primary text-white font-bold py-3 rounded-xl transition-all shadow-lg"
+          onClick={handleSubmit}
+        />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AppointmentForm
+export default AppointmentForm;

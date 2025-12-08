@@ -7,6 +7,15 @@ import About from "../pages/about/About";
 import ContactPage from "../pages/contact/Contact";
 import ServiceDetail from "../pages/Services/componets/ServiceDetail";
 import AdminLogin from "../pages/adminLogin/AdminLogin";
+import AllBookings from "../admin/pages/bookings/AllBookings";
+import ProtectedAdminRoute from "../components/common/ProtectedAdminRoute";
+import CreateClinic from "../admin/pages/clinicProfile/CreateClinic";
+import AllClinics from "../admin/pages/clinicProfile/AllClinics";
+import EditClinic from "../admin/pages/clinicProfile/EditClinic";
+import ProtectedClinicRoute from "../components/common/ProtectedClinicRoute";
+import ClinicLayout from "../clinic-dashboard/layout/ClinicLayout";
+import ClinicBookings from "../clinic-dashboard/pages/clinicBooking/ClinicBookings";
+import AssignedAppointments from "../clinic-dashboard/pages/clinicBooking/AssignedAppointments";
 
 const AllRoutes = () => {
   return (
@@ -23,16 +32,41 @@ const AllRoutes = () => {
       <Route
         path="/admin"
         element={
-          // <AdminProtectedRoute>
+          <ProtectedAdminRoute>
             <AdminLayout />
-          // </AdminProtectedRoute>
+          </ProtectedAdminRoute>
         }
       >
         <Route index element={<Dashboard />} />
         <Route path="/admin/users" element={<HomePage />} />
+        <Route path="/admin/bookings" element={<AllBookings />} />
+        <Route path="/admin/all-clinics" element={<AllClinics />} />
+        <Route path="/admin/create-clinic" element={<CreateClinic />} />
+        <Route path="/admin/clinics/edit/:id" element={<EditClinic />} />
+
         
         {/* <Route path="products/edit/:id" element={<EditProduct />} /> */}
       </Route>
+
+      <Route
+        path="/clinic"
+        element={
+          <ProtectedClinicRoute>
+            {/* <AdminLayout /> */}
+            <ClinicLayout />
+          </ProtectedClinicRoute>
+        }
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="/clinic/users" element={<HomePage />} />
+        <Route path="/clinic/bookings" element={<ClinicBookings />} />
+        <Route path="/clinic/notifications" element={<AssignedAppointments />} />
+        {/* <Route path="/clinic/bookings" element={<AllBookings />} />
+        <Route path="/clinic/all-clinics" element={<AllClinics />} />
+        <Route path="/clinic/create-clinic" element={<CreateClinic />} />
+        <Route path="/clinic/clinics/edit/:id" element={<EditClinic />} /> */}
+      </Route>
+
     </Routes>
   );
 };
