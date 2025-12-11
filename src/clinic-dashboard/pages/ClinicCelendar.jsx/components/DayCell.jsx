@@ -18,11 +18,18 @@ const DayCell = ({ dateObj, isToday, isOff, reason, onClick }) => {
     >
       <span className="text-base font-semibold">{dayNumber}</span>
 
-      {isOff && (
-        <span className="mt-1 text-[10px] px-2 py-0.5 rounded-full bg-red-100 text-red-700">
-          Off Day
-        </span>
-      )}
+     {isOff && !reason && (
+ <span className="mt-1 text-[10px] px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+    Week Off
+  </span>
+)}
+
+{isOff && reason && (
+  <span className="mt-1 text-[10px] px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+    Off Day
+  </span>
+)}
+
 
       {!isOff && isToday && (
         <span className="mt-1 text-[10px] text-blue-600">Today</span>

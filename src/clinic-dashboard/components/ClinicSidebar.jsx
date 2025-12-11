@@ -71,6 +71,12 @@ const clinicId = useSelector((state) => state.auth.user?.id);
       icon: Tag,
       path: "/clinic/off-days",
     },
+    {
+      id: "weeklyOff",
+      name: "Weekly Off",
+      icon: Tag,
+      path: "/clinic/weekly-off",
+    },
 
     
     // {
