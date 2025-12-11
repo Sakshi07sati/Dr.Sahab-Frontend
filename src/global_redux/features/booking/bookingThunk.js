@@ -43,21 +43,35 @@ export const getAllBookings = createAsyncThunk(
   }
 );
 
+export const getPendingBookings = createAsyncThunk(
+  "booking/getPendingBookings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/dashboard/pending");
+
+      // API returns: { success, total, data: [...] }
+      return res.data.data; // only pending appointments array
+    } catch (error) {
+      const errMsg =
+        error.response?.data?.message || "Failed to load pending bookings!";
+      toast.error(errMsg);
+      return rejectWithValue(errMsg);
+    }
+  }
+);
+
+
 
 // Add these to your existing bookingThunk.js file
 
 // Get Available Clinics (clinics not on off-day today)
 export const getAvailableClinics = createAsyncThunk(
   "booking/getAvailableClinics",
-  async (_, { rejectWithValue }) => {
+  async (date, { rejectWithValue }) => {
     try {
-      const res = await api.get("/clinic/available");
-      console.log("Available Clinics Response:", res.data); // Debug log
-      
-      // Return the clinics array, handle both response formats
-      return Array.isArray(res.data) 
-        ? res.data 
-        : res.data?.clinics || [];
+      const res = await api.get(`/clinic/available?date=${date}`);
+
+      return res.data?.clinics || [];
     } catch (error) {
       const errMsg = error.response?.data?.message || "Failed to fetch available clinics!";
       toast.error(errMsg);
@@ -65,6 +79,7 @@ export const getAvailableClinics = createAsyncThunk(
     }
   }
 );
+
 
 // Assign Clinic to Booking
 export const assignClinicToBooking = createAsyncThunk(

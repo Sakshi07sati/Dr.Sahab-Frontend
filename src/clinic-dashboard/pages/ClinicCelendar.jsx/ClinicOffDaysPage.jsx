@@ -47,10 +47,10 @@ const ClinicOffDaysPage = () => {
     d1.getDate() === d2.getDate();
 
   // Helper: Check if specific date is a daily off
-  const findOffDayByDate = (dateObj) => {
-    const dateStr = dateObj.toISOString().slice(0, 10);
-    return offDays.find((d) => d.date?.startsWith(dateStr)) || null;
-  };
+  // const findOffDayByDate = (dateObj) => {
+  //   const dateStr = dateObj.toISOString().slice(0, 10);
+  //   return offDays.find((d) => d.date?.startsWith(dateStr)) || null;
+  // };
 
   const isOffDay = (dateObj) => !!findOffDayByDate(dateObj);
 
@@ -99,21 +99,39 @@ const ClinicOffDaysPage = () => {
   };
 
   // 🟢 Save handler
-  const handleSaveOffDay = () => {
-    if (!selectedDate) return;
+  // Add this helper at the top of your component
+const formatLocalDate = (dateObj) => {
+  const year = dateObj.getFullYear();
+  const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
-    dispatch(
-      createClinicOffDay({
-        date: selectedDate.toISOString().slice(0, 10),
-        reason: reasonInput,
-      })
-    ).then((res) => {
-      if (res.meta.requestStatus === "fulfilled") {
-        dispatch(fetchClinicOffDays());
-        setModalOpen(false);
-      }
-    });
-  };
+// Update findOffDayByDate
+const findOffDayByDate = (dateObj) => {
+  const localDateString = formatLocalDate(dateObj);
+  return offDays.find((d) => d.date?.slice(0, 10) === localDateString) || null;
+};
+
+// Update handleSaveOffDay to use the same helper
+const handleSaveOffDay = () => {
+  if (!selectedDate) return;
+
+  const finalReason = reasonInput.trim() === "" ? "holiday" : reasonInput;
+
+  dispatch(
+    createClinicOffDay({
+      date: formatLocalDate(selectedDate),
+      reason: finalReason,
+    })
+  ).then((res) => {
+    if (res.meta.requestStatus === "fulfilled") {
+      dispatch(fetchClinicOffDays());
+      setModalOpen(false);
+    }
+  });
+};
+
 
   return (
     <div className="p-6">

@@ -6,6 +6,7 @@ import {
   Activity,
   CheckCircle2,
 } from "lucide-react";
+import PendingAppointments from "../bookings/PendingAppointments";
 
 const Dashboard = () => {
   return (
@@ -62,7 +63,7 @@ const Dashboard = () => {
       </div>
 
       {/* RECENT APPOINTMENTS */}
-      <div className="bg-white shadow rounded-xl p-6">
+      {/* <div className="bg-white shadow rounded-xl p-6">
         <h2 className="text-xl font-bold text-gray-800 mb-4">
           Recent Appointments
         </h2>
@@ -96,6 +97,9 @@ const Dashboard = () => {
           </table>
         </div>
 
+      </div> */}
+      <div>
+        <PendingAppointments/>
       </div>
 
     </div>
