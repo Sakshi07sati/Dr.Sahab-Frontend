@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Menu, X, Calendar, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CartoonButton } from '../ui/cartoon-button';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -106,10 +109,11 @@ submenu: [
 
           {/* Book Appointment Button - Desktop */}
           <div className="hidden md:block">
-            <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all hover:scale-105 flex items-center gap-2 font-semibold shadow-lg">
+            {/* <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all hover:scale-105 flex items-center gap-2 font-semibold shadow-lg">
               <Calendar size={18} />
               Book Appointment
-            </button>
+            </button> */}
+            <CartoonButton onClick={() => navigate('/book-appointment')} label="Book Appointment" className='bg-primary px-5 py-2 rounded-full text-white' />
           </div>
 
           {/* Mobile Menu Button */}

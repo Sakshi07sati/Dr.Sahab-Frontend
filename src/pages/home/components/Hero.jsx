@@ -75,7 +75,7 @@ const Hero = () => {
 <motion.img
   src={hero01}
   alt=""
-  className="absolute top-10 md:top-40 left-10 w-12 h-12 md:w-20 md:h-20 rounded-3xl z-50"
+  className="absolute top-10 md:top-40 left-10 w-12 h-12 md:w-20 md:h-20 rounded-3xl z-40"
   initial={{ rotate: 45 }}   // <-- static rotate
   animate={{
     y: [0, -15, 0],          // <-- floating only
@@ -89,7 +89,7 @@ const Hero = () => {
 <motion.img
   src={hero02}
   alt=""
-  className="absolute bottom-0 md:top-80 right-10 w-14 h-14 md:w-20 md:h-20 rounded-3xl z-50"
+  className="absolute bottom-0 md:top-80 right-10 w-14 h-14 md:w-20 md:h-20 rounded-3xl z-40"
   initial={{ rotate: 0 }}   // <-- static rotate
   animate={{
     y: [0, -15, 0],          // <-- floating only

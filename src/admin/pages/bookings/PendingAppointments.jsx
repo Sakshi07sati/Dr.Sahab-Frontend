@@ -103,6 +103,7 @@ const PendingAppointments = () => {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Booking Date</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Message</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Action</th>
               </tr>
             </thead>
@@ -124,6 +125,10 @@ const PendingAppointments = () => {
                   <td className="px-6 py-4 text-sm">{booking.location}</td>
 
                   <td className="px-6 py-4 text-sm">{booking.message || "No message"}</td>
+                  
+                  <td className="px-6 py-4 text-sm">
+                    <div className="text-sm text-gray-900 text-center rounded-full px-1 bg-yellow-100 py-1">{booking.status}</div>
+                  </td>
 
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button

@@ -35,6 +35,38 @@ export const getAssignedBookings = createAsyncThunk(
   }
 );
 
+// ✅ Fetch only accepted bookings for that clinic
+export const getAcceptedClinicBookings = createAsyncThunk(
+  "clinicBookings/getAcceptedClinicBookings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/clinic-booking/accepted");
+      return res.data.bookings || [];
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch accepted bookings"
+      );
+    }
+  }
+);
+
+// Fetch completed bookings for clinic
+export const getCompletedClinicBookings = createAsyncThunk(
+  "clinicBookings/getCompletedClinicBookings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/clinic-booking/completed");
+      return res.data.bookings || [];
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch completed bookings"
+      );
+    }
+  }
+);
+
+
+
 export const acceptClinicBooking = createAsyncThunk(
   "clinicBookings/acceptClinicBooking",
   async (bookingId, { rejectWithValue }) => {

@@ -4,23 +4,25 @@ import {
   getAllBookings, 
   getAvailableClinics, 
   assignClinicToBooking, 
-  getPendingBookings
+  getPendingBookings,
+  getAssignedBookings,
+  getCompletedBookings
 } from "./bookingThunk";
 
 const bookingSlice = createSlice({
   name: "booking",
   initialState: {
-  loading: false,
-  booking: null,
-  bookings: [],
-  pendingBookings: [],   // 🔥 NEW
-  availableClinics: [],
-  error: null,
-  availableLoading: false,
-  
-
-},
-
+    loading: false,
+    booking: null,
+    bookings: [],
+    pendingBookings: [],
+    assignedBookings: [],
+    availableClinics: [],
+    error: null,
+    availableLoading: false,
+    completedBookings: [],
+    completedLoading: false,
+  },
 
   reducers: {},
 
@@ -54,79 +56,106 @@ const bookingSlice = createSlice({
         state.error = action.payload;
       })
 
+      // ========== GET PENDING BOOKINGS ==========
       .addCase(getPendingBookings.pending, (state) => {
-  state.loading = true;
-  state.error = null;
-})
-.addCase(getPendingBookings.fulfilled, (state, action) => {
-  state.loading = false;
-  state.pendingBookings = action.payload; // 🔥 only pending stored
-})
-.addCase(getPendingBookings.rejected, (state, action) => {
-  state.loading = false;
-  state.error = action.payload;
-})
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getPendingBookings.fulfilled, (state, action) => {
+        state.loading = false;
+        state.pendingBookings = action.payload;
+      })
+      .addCase(getPendingBookings.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
 
+      // ========== GET ASSIGNED BOOKINGS ==========
+      .addCase(getAssignedBookings.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAssignedBookings.fulfilled, (state, action) => {
+        state.loading = false;
+        // Handle both formats: direct array or { data: [...] }
+        state.assignedBookings = Array.isArray(action.payload) 
+          ? action.payload 
+          : action.payload?.data || [];
+      })
+      .addCase(getAssignedBookings.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.assignedBookings = [];
+      })
 
       // ========== GET AVAILABLE CLINICS ==========
-      // ========== GET AVAILABLE CLINICS ==========
-// .addCase(getAvailableClinics.pending, (state) => {
-//   state.loading = true;
-//   state.error = null;
-// })
-// .addCase(getAvailableClinics.fulfilled, (state, action) => {
-//   state.loading = false;
-//   // Handle both array response and object with clinics property
-//   state.availableClinics = Array.isArray(action.payload) 
-//     ? action.payload 
-//     : action.payload?.clinics || [];
-// })
-// .addCase(getAvailableClinics.rejected, (state, action) => {
-//   state.loading = false;
-//   state.error = action.payload;
-//   state.availableClinics = [];
-// })
-// Get Available Clinics
-.addCase(getAvailableClinics.pending, (state) => {
-  state.availableLoading = true;
-})
-.addCase(getAvailableClinics.fulfilled, (state, action) => {
-  state.availableLoading = false;
+      .addCase(getAvailableClinics.pending, (state) => {
+        state.availableLoading = true;
+      })
+      .addCase(getAvailableClinics.fulfilled, (state, action) => {
+        state.availableLoading = false;
+        state.availableClinics = Array.isArray(action.payload)
+          ? action.payload
+          : action.payload?.clinics || [];
+      })
+      .addCase(getAvailableClinics.rejected, (state, action) => {
+        state.availableLoading = false;
+        state.availableClinics = [];
+      })
 
-  state.availableClinics = Array.isArray(action.payload)
-    ? action.payload
-    : action.payload?.clinics || [];
-})
-.addCase(getAvailableClinics.rejected, (state, action) => {
-  state.availableLoading = false;
-  state.availableClinics = [];
-})
-
-
-
-      // ========== ASSIGN CLINIC TO BOOKING ==========
+      // ========== ASSIGN CLINIC TO BOOKING ========== 🔥 FIXED
       .addCase(assignClinicToBooking.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(assignClinicToBooking.fulfilled, (state, action) => {
-  state.loading = false;
+        state.loading = false;
+        
+        // 🔥 FIX: Extract the actual booking data from the response
+        const updated = action.payload?.data || action.payload;
 
-  const updated = action.payload; // updated booking from backend
+        // Only proceed if we have valid booking data with an _id
+        if (updated && updated._id) {
+          // Remove from pending
+          state.pendingBookings = state.pendingBookings.filter(
+            (b) => b._id !== updated._id
+          );
 
-  // 1️⃣ Remove from pending immediately
-  state.pendingBookings = state.pendingBookings.filter(
-    (b) => b._id !== updated._id
-  );
+          // Update in all bookings
+          state.bookings = state.bookings.map((b) =>
+            b._id === updated._id ? updated : b
+          );
 
-  // 2️⃣ Update inside all bookings (if loaded anywhere else)
-  state.bookings = state.bookings.map((b) =>
-    b._id === updated._id ? updated : b
-  );
-})
-
+          // 🔥 Add to assigned bookings (only if not already there)
+          const existsInAssigned = state.assignedBookings.some(
+            (b) => b._id === updated._id
+          );
+          
+          if (!existsInAssigned) {
+            state.assignedBookings.push(updated);
+          } else {
+            // Update existing entry
+            state.assignedBookings = state.assignedBookings.map((b) =>
+              b._id === updated._id ? updated : b
+            );
+          }
+        }
+      })
       .addCase(assignClinicToBooking.rejected, (state, action) => {
         state.loading = false;
+        state.error = action.payload;
+      })
+
+      // ========== GET COMPLETED BOOKINGS ==========
+      .addCase(getCompletedBookings.pending, (state) => {
+        state.completedLoading = true;
+      })
+      .addCase(getCompletedBookings.fulfilled, (state, action) => {
+        state.completedLoading = false;
+        state.completedBookings = action.payload || [];
+      })
+      .addCase(getCompletedBookings.rejected, (state, action) => {
+        state.completedLoading = false;
         state.error = action.payload;
       });
   },

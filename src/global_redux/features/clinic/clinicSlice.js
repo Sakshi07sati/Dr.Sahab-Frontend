@@ -11,7 +11,7 @@ const clinicSlice = createSlice({
     clinicProfile: null,
 loadingProfile: false,
 profileError: null,
-
+clinicDetails: {}, 
   },
 
   reducers: {},
@@ -76,17 +76,23 @@ profileError: null,
 
 
 .addCase(getClinicById.pending, (state) => {
-    state.loadingProfile = true;
-    state.profileError = null;
-  })
-  .addCase(getClinicById.fulfilled, (state, action) => {
-    state.loadingProfile = false;
-    state.clinicProfile = action.payload;
-  })
-  .addCase(getClinicById.rejected, (state, action) => {
-    state.loadingProfile = false;
-    state.profileError = action.payload;
-  });
+        state.loadingProfile = true;
+        state.profileError = null;
+      })
+      .addCase(getClinicById.fulfilled, (state, action) => {
+        state.loadingProfile = false;
+        state.clinicProfile = action.payload;
+        
+        // 🔥 NEW: Store in clinicDetails map for easy lookup
+        const clinic = action.payload.clinic || action.payload;
+        if (clinic._id) {
+          state.clinicDetails[clinic._id] = clinic;
+        }
+      })
+      .addCase(getClinicById.rejected, (state, action) => {
+        state.loadingProfile = false;
+        state.profileError = action.payload;
+      });
   },
 });
 

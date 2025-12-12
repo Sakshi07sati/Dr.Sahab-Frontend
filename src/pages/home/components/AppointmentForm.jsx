@@ -41,7 +41,7 @@ const AppointmentForm = () => {
   };
 
   return (
-    <div className="bg-[#f4f4f4c0] h-full backdrop-blur-xl rounded-3xl p-8 shadow-2xl overflow-y-auto">
+    <div className="bg-[#f4f4f4c0] max-w-7xl mx-auto h-full backdrop-blur-xl rounded-3xl p-8 shadow-2xl overflow-y-auto ">
       <h2 className="text-2xl font-bold text-black mb-4">Book Your Appointment</h2>
 
       <form onSubmit={handleSubmit} className="space-y-3">

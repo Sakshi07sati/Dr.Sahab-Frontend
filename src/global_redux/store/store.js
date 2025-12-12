@@ -6,6 +6,7 @@ import bookingReducer from "../features/booking/bookingSlice";
 import clinicReducer from "../features/clinic/clinicSlice";
 import clinicBookingReducer from "../features/clinicBooking/clinicBookingSlice";  
 import clinicOffDaysReducer from "../features/clinicOffDays/clinicOffDaysSlice";
+import contactReducer from "../features/contact/contactSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,5 +16,6 @@ export const store = configureStore({
      clinic: clinicReducer,
      clinicBookings: clinicBookingReducer,
      clinicOffDays: clinicOffDaysReducer,
+      contact: contactReducer,
   },
 });

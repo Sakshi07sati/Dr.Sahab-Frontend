@@ -5,6 +5,8 @@ import {
   acceptClinicBooking,
   rejectClinicBooking,
   completeClinicBooking,
+  getAcceptedClinicBookings,
+  getCompletedClinicBookings,
 } from "./clinicBookingThunk";
 
 const clinicBookingSlice = createSlice({
@@ -15,6 +17,8 @@ const clinicBookingSlice = createSlice({
     assignedBookings: [],
     assignedCount: 0,
     error: null,
+    completedBookings: [],
+
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -47,6 +51,32 @@ const clinicBookingSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+
+      .addCase(getAcceptedClinicBookings.pending, (state) => {
+  state.loading = true;
+})
+.addCase(getAcceptedClinicBookings.fulfilled, (state, action) => {
+  state.loading = false;
+  state.bookings = action.payload;  // only accepted bookings
+})
+.addCase(getAcceptedClinicBookings.rejected, (state, action) => {
+  state.loading = false;
+  state.error = action.payload;
+})
+
+.addCase(getCompletedClinicBookings.pending, (state) => {
+  state.loading = true;
+})
+.addCase(getCompletedClinicBookings.fulfilled, (state, action) => {
+  state.loading = false;
+  state.completedBookings = action.payload; // store completed bookings
+})
+.addCase(getCompletedClinicBookings.rejected, (state, action) => {
+  state.loading = false;
+  state.error = action.payload;
+})
+
+
 
       // 🔹 Accept Booking
       .addCase(acceptClinicBooking.pending, (state) => {

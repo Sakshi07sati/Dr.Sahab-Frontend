@@ -60,6 +60,36 @@ export const getPendingBookings = createAsyncThunk(
   }
 );
 
+export const getAssignedBookings = createAsyncThunk(
+  "booking/getAssignedBookings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/dashboard/assigned");
+      console.log("Assigned Bookings Response:", res.data);
+      return res.data;  // { success, total, data: [...] }
+    } catch (error) {
+      const msg = error.response?.data?.message || "Failed to fetch assigned bookings!";
+      toast.error(msg);
+      return rejectWithValue(msg);
+    }
+  }
+);
+
+export const getCompletedBookings = createAsyncThunk(
+  "booking/getCompletedBookings",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await api.get("/dashboard/completed");
+      console.log("Completed Bookings Response:", res);
+      return res.data.data || res.data; // safe for both formats
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to load completed bookings"
+      );
+    }
+  }
+);
+
 
 
 // Add these to your existing bookingThunk.js file
@@ -96,3 +126,4 @@ export const assignClinicToBooking = createAsyncThunk(
     }
   }
 );
+

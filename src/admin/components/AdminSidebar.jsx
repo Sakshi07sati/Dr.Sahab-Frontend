@@ -12,6 +12,7 @@ import {
   ShoppingBag,
   X,
   ShoppingCartIcon,
+  Contact,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -38,16 +39,28 @@ const AdminSidebar = () => {
       path: "/admin",
     },
     {
-      id: "users",
-      name: "Users",
-      icon: Users,
-      path: "/admin/users",
+      id: "contactList",
+      name: "Contact List",
+      icon: Contact,
+      path: "/admin/contact-list",
+    },
+    // {
+    //   id: "bookings",
+    //   name: "Bookings",
+    //   icon: ShoppingCartIcon,
+    //   path: "/admin/bookings",
+    // },
+    {
+      id: "assignedAppointments",
+      name: "Assigned Appointments",
+      icon: ShoppingCartIcon,
+      path: "/admin/assigned-appointments",
     },
     {
-      id: "bookings",
-      name: "Bookings",
-      icon: ShoppingCartIcon,
-      path: "/admin/bookings",
+      id: "completedAppointments",
+      name: "Completed Appointments",
+      icon: Tag,
+      path: "/admin/completed-appointments",
     },
     {
       id: "Clinic",

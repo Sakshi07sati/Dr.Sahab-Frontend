@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getClinicBookings, completeClinicBooking } from "../../../global_redux/features/clinicBooking/clinicBookingThunk";
+import {
+  completeClinicBooking,
+  getAcceptedClinicBookings
+} from "../../../global_redux/features/clinicBooking/clinicBookingThunk";
+
 import { Calendar, MapPin, Phone, MessageCircle, CheckCircle } from "lucide-react";
 
-const ClinicBookings = () => {
+const AcceptedAppointments = () => {
   const dispatch = useDispatch();
   const { bookings, loading } = useSelector((state) => state.clinicBookings);
 
-  // Modal State
   const [showModal, setShowModal] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [amount, setAmount] = useState("");
 
   useEffect(() => {
-    dispatch(getClinicBookings());
+    dispatch(getAcceptedClinicBookings()); // ✅ fetch only accepted bookings
   }, [dispatch]);
 
   const openCompleteModal = (booking) => {
@@ -37,9 +40,23 @@ const ClinicBookings = () => {
     <div className="p-6">
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-gray-900">My Appointments</h2>
-        <p className="text-gray-600 mt-1">Bookings assigned to your clinic</p>
+        <h2 className="text-3xl font-bold text-gray-900">Accepted Appointments</h2>
+        <p className="text-gray-600 mt-1">Appointments assigned and accepted by your clinic</p>
       </div>
+
+      {/* Loading */}
+      {loading && (
+        <div className="text-center py-10">
+          <div className="animate-spin h-10 w-10 border-b-2 border-blue-600 mx-auto rounded-full"></div>
+        </div>
+      )}
+
+      {/* Empty */}
+      {!loading && bookings.length === 0 && (
+        <div className="bg-white p-8 text-center rounded-xl shadow border">
+          <p className="text-gray-600 text-lg">No accepted appointments found.</p>
+        </div>
+      )}
 
       {/* Booking Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -56,7 +73,7 @@ const ClinicBookings = () => {
               </div>
 
               <div className="flex items-center gap-2 text-gray-700">
-                <Calendar size={18} />{" "}
+                <Calendar size={18} />
                 {new Date(b.bookingDate).toLocaleDateString("en-IN")}
               </div>
 
@@ -92,7 +109,7 @@ const ClinicBookings = () => {
         ))}
       </div>
 
-      {/* MODAL */}
+      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-xl w-[350px] shadow-xl">
@@ -129,4 +146,4 @@ const ClinicBookings = () => {
   );
 };
 
-export default ClinicBookings;
+export default AcceptedAppointments;
