@@ -13,11 +13,11 @@ const AboutSection = () => {
                     <div className='flex items-center justify-center w-full xl:w-1/2 h-[500px] md:h-[600px]  xl:pr-20'>
                         <div className='w-[550px] h-full relative'>
                             <div className='w-full'>
-                                <img className='w-full md:w-[407px] rounded-[50px]' src="https://www.radiustheme.com/demo/wordpress/themes/dentcure/wp-content/uploads/2025/08/Frame-2760-min.jpg" alt="" />
+                                <img className='w-full md:w-[407px] rounded-[50px]' src="https://t3.ftcdn.net/jpg/04/11/46/26/360_F_411462636_lkNQ6m8tFSlIECaTKw0o1vQskkEcPzE0.jpg" alt="" />
                             </div>
 
-                            <div className='absolute right-0 bottom-0 bg-white border-[8px] border-white rounded-[30px] md:rounded-[50px]'>
-                                <img className='rounded-[30px] md:rounded-[50px] w-[250px] md:w-[384px] ' src="https://www.radiustheme.com/demo/wordpress/themes/dentcure/wp-content/uploads/2025/08/Frame-2760-min.jpg" alt="" />
+                            <div className='absolute right-0 bottom-0 h-[350px] bg-white border-[8px] border-white rounded-[30px] md:rounded-[50px] '>
+                                <img className='rounded-[30px] md:rounded-[50px] w-[300px] md:w-[384px] object-cover' src="https://thumbs.dreamstime.com/b/dental-treatment-14922498.jpg?w=768" alt="" />
                             </div>
                             <div className='absolute bottom-20 right-64 md:top-16 md:right-14'>
                                 <img id='Rotet' className='rotate-360-infinite w-24 md:w-36 ' src="http://localhost:5174/src/assets/images/about-experience-circle.png" alt="" />
@@ -63,7 +63,7 @@ const AboutSection = () => {
                             </div>
                             <div className='mt-10'>
                                 {/* <Button variant="Default" className="rounded-full w-56 text-white h-12 text-base  bg-[#1E84B5]">Read More About Us</Button> */}
-                                <CartoonButton label="Read More About Us" className='py-2 px-5 text-white text-lg rounded-lg bg-primary ' />
+                                <CartoonButton label="Read More About Us" to='/contact' className='py-2 px-5 text-white text-lg rounded-lg bg-primary ' />
                             </div>
                         </div>
                     </div>

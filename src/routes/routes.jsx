@@ -1,10 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import Home from "../pages/home/Home";
 import AdminLayout from "../admin/layout/AdminLayout";
 import HomePage from "../pages/home/components/HomePage";
 import Dashboard from "../admin/pages/Dashboard/Dashboard";
 import About from "../pages/about/About";
 import ContactPage from "../pages/contact/Contact";
+import Services from "../pages/home/components/Services";
 import ServiceDetail from "../pages/Services/componets/ServiceDetail";
 import AdminLogin from "../pages/adminLogin/AdminLogin";
 import AllBookings from "../admin/pages/bookings/AllBookings";
@@ -26,6 +27,8 @@ import AcceptedAppointments from "../clinic-dashboard/pages/clinicBooking/Accept
 import CompletedClinicBookings from "../clinic-dashboard/pages/clinicBooking/CompletedClinicBookings";
 import AdminContactList from "../admin/pages/admin-contact/AdminContactList";
 import BookingPage from "../pages/Booking-page/BookingPage";
+import AppointmentForm from "../pages/home/components/AppointmentForm";
+import { SearchCheck } from "lucide-react";
 
 const AllRoutes = () => {
   return (
@@ -36,8 +39,12 @@ const AllRoutes = () => {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/book-appointment" element={<BookingPage />} />
       <Route path="/services/:id" element={<ServiceDetail />} />
+      <Route path ="/services" element ={<Services/>}/>
+      
+      
     
     <Route path="/admin/login" element={<AdminLogin />} />
+    <Route path="/appointment" element={<AppointmentForm/>} />
 
         {/* <Route path="products/edit/:id" element={<EditProduct />} /> */}
       <Route

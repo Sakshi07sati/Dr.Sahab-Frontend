@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import your images
 import bgimg from "../../../assets/bgimg.png";
@@ -23,24 +24,25 @@ import img17 from "../../../assets/service/img17.png";
 import { CartoonButton } from "../../../components/ui/cartoon-button";
 
 const Services = () => {
-  const servicesList = [
-    { img: img01, title: "Dental Checkup & X-Rays", popular: true },
-    { img: img02, title: "Orthodontics (Braces)", popular: false },
-    { img: img03, title: "Dental Implants", popular: true },
-    { img: img04, title: "Crowns and Bridges", popular: false },
-    { img: img05, title: "Root Canal Treatment (RCT)", popular: true },
-    { img: img06, title: "Teeth Whitening & Bleaching", popular: true },
-    { img: img07, title: "Teeth Cleaning & Polishing", popular: false },
-    { img: img09, title: "Kids Dentistry", popular: false },
-    { img: img10, title: "Wisdom Teeth Extraction", popular: false },
-    { img: img11, title: "Tooth Colored Fillings", popular: false },
-    { img: img12, title: "Aligners and Gum Surgery", popular: true },
-    { img: img13, title: "Full Mouth Rehabilitation", popular: false },
-    { img: img14, title: "Facial Aesthetic", popular: false },
-    { img: img15, title: "Cosmetic & Laser Dental Treatment", popular: true },
-    { img: img16, title: "Dental Veneers and Laminates", popular: false },
-    { img: img17, title: "Digital Dentistry", popular: false },
-  ];
+const servicesList = [
+  { img: img01, title: "Dental Checkup & X-Rays", popular: true, id: "dental-checkup-x-rays" },
+  { img: img02, title: "Orthodontics (Braces)", popular: false, id: "orthodontics-braces" },
+  { img: img03, title: "Dental Implants", popular: true, id: "dental-implants" },
+  { img: img04, title: "Crowns and Bridges", popular: false, id: "crowns-and-bridges" },
+  { img: img05, title: "Root Canal Treatment (RCT)", popular: true, id: "root-canal-treatment-rct" },
+  { img: img06, title: "Teeth Whitening & Bleaching", popular: true, id: "teeth-whitening-bleaching" },
+  { img: img07, title: "Teeth Cleaning & Polishing", popular: false, id: "teeth-cleaning-polishing" },
+  { img: img09, title: "Kids Dentistry", popular: false, id: "kids-dentistry" },
+  { img: img10, title: "Wisdom Teeth Extraction", popular: false, id: "wisdom-teeth-extraction" },
+  { img: img11, title: "Tooth Colored Fillings", popular: false, id: "tooth-colored-fillings" },
+  { img: img12, title: "Aligners and Gum Surgery", popular: true, id: "aligners-gum-surgery" },
+  { img: img13, title: "Full Mouth Rehabilitation", popular: false, id: "full-mouth-rehabilitation" },
+  { img: img14, title: "Facial Aesthetic", popular: false, id: "facial-aesthetic" },
+  { img: img15, title: "Cosmetic & Laser Dental Treatment", popular: true, id: "cosmetic-laser-dental-treatment" },
+  { img: img16, title: "Dental Veneers and Laminates", popular: false, id: "dental-veneers-laminates" },
+  { img: img17, title: "Digital Dentistry", popular: false, id: "digital-dentistry" },
+];
+
 
   return (
     <div className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
@@ -71,6 +73,7 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {servicesList.map((service, index) => (
+            <Link to={`/services/${service.id}`} key={service.id} className="block">
             <div
               key={index}
               className="group relative bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col items-center text-center hover:shadow-2xl hover:-translate-y-3 hover:border-blue-300 transition-all duration-500 cursor-pointer overflow-hidden"
@@ -117,7 +120,8 @@ const Services = () => {
               {/* Bottom Border Animation */}
               <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
             </div>
-          ))}
+          </Link>
+          ))} 
         </div>
 
         {/* Bottom CTA */}
@@ -128,6 +132,7 @@ const Services = () => {
             </p>
             <CartoonButton
               label="Contact Us for More Services"
+              to="/appointment"
               className="bg-primary text-white font-semibold px-8 py-3 rounded-xl hover:scale-105 transition-transform"
             />
           </div>

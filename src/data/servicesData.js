@@ -31,79 +31,88 @@ export const servicesData = {
   },
   "orthodontics-braces": {
     title: "Orthodontics (Braces)",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://www.islandchildrensdentistry.com/wp-content/uploads/2025/07/understanding-adult-orthodontics-what-qualifies-as-treatment.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "We offer metal, ceramic and invisible braces.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
     ]
+   
   },
   "dental-implants": {
     title: "Dental Implants",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://radiantdentalcare.in/wp-content/uploads/2024/07/dental-implants-all-on-four-single-tooth-full-mouth-2.jpg",
    description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "We offer metal, ceramic and invisible braces.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
     ]
+  
   },
   "crowns-and-bridges": {
     title: "Crowns and Bridges",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://lirp.cdn-website.com/74e995b78a304d649882de9214472f43/dms3rep/multi/opt/ThinkstockPhotos-595744546-640w.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "We offer metal, ceramic and invisible braces.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
     ]
+  
   },
   "root-canal-treatment-rct": {
     title: "Root Canal Treatment (RCT)",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://adishri.dentostack.com/i/treatments/rct.jpg",
    description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "We offer metal, ceramic and invisible braces.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
     ]
+   
   },
   "teeth-whitening-bleaching": {
     title: "Teeth Whitening & Bleaching",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://www.doshidentalcare.com/wp-content/uploads/2019/12/teeth-whitening-in-office.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "We offer metal, ceramic and invisible braces.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
     ]
+    
   },
   "teeth-cleaning-polishing": {
     title: "Teeth Cleaning & Polishing",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://bizimages.withfloats.com/actual/6713a0b2f56965b052559393.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Polishing helps maintain fresh breath and oral hygiene."
     ]
+   
   },
   "kids-dentistry": {
     title: "Kids Dentistry",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://familydentalmiraroad.com/wp-content/uploads/2024/02/Pediatric-dentistry-1024x484.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Friendly pediatric environment for stress-free treatment."
     ]
+   
   },
   "wisdom-teeth-extraction": {
     title: "Wisdom Teeth Extraction",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://images.ctfassets.net/g18drechotog/1VHGZqkavCEAvXDYEG4tPr/b064777895bc5046b89fd572a1ef0c52/wisdom-teeth-extracted-for-teen-pict-1.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Ensures relief from pain, infection and swelling."
     ]
+ 
   },
   "tooth-colored-fillings": {
     title: "Tooth Colored Fillings",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://media.cmsmax.com/vh0csysh7szbnin26vhr3/tooth-colored-fillings-1.webp",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Long-lasting and blends seamlessly with your teeth."
     ]
+    
   },
   "aligners-gum-surgery": {
     title: "Aligners and Gum Surgery",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://chennaiorthodontics.com/wp-content/uploads/2019/03/Invisalign-660x400.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Advanced gum surgeries for healthy gums."
@@ -111,7 +120,7 @@ export const servicesData = {
   },
   "full-mouth-rehabilitation": {
     title: "Full Mouth Rehabilitation",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://www.advanceddentistry.co.uk/wp-content/uploads/2024/01/Full-mouth-rehabiliation.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Improves chewing, appearance and overall oral function."
@@ -119,7 +128,7 @@ export const servicesData = {
   },
   "facial-aesthetic": {
     title: "Facial Aesthetic",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://aestheticmed.in/wp-content/uploads/2025/09/Facial-aesthetics-market.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.",
       "Get a balanced and natural facial appearance."
@@ -127,7 +136,7 @@ export const servicesData = {
   },
   "cosmetic-laser-dental-treatment": {
     title: "Cosmetic & Laser Dental Treatment",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://www.stavyadental.com/blog/wp-content/uploads/2019/05/720-X-320-2.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod..",
       "Laser dentistry ensures pain-free, fast healing treatments."
@@ -135,7 +144,7 @@ export const servicesData = {
   },
   "dental-veneers-laminates": {
     title: "Dental Veneers and Laminates",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://elitesmilefamilydental.com/wp-content/uploads/2024/06/porcelain-veneers-scaled.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod.Ultra-thin veneers improve shape and color of teeth.",
       "Perfect for smile makeovers with natural results.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."
@@ -143,7 +152,7 @@ export const servicesData = {
   },
   "digital-dentistry": {
     title: "Digital Dentistry",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=600&fit=crop",
+    image: "https://www.farmingtonfamilydental.com/sites/default/files/2023-05/x-ray1.jpg",
     description: [
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments.",
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis maxime aperiam eaque commodi, ipsum ut temporibus nesciunt dolorum sint mollitia eos suscipit esse, aliquam tempora neque fugit quas quaerat? Ullam, ipsam voluptas voluptatum minima illo, omnis error minus totam quam cumque consequatur? Quod quas ab commodi veritatis consequuntur unde temporibus corporis ullam, harum fuga laudantium odio perspiciatis libero illum consequatur iure repellendus voluptatibus nobis tenetur culpa at ipsum reprehenderit provident? Sapiente autem fugit sit quis dolorum consequuntur iure repellendus odit. Sit corporis delectus, iste voluptate dolorem numquam? Distinctio unde suscipit natus debitis hic quos minus, accusantium molestias esse modi. Quod. Advanced digital scanning for precise treatments."

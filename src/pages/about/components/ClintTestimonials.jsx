@@ -1,26 +1,47 @@
 import React, { useState } from "react";
 import { Play, X } from "lucide-react";
-import video1 from "../../../assets/Video1.mp4";
-import about from "../../../assets/about.jpg";
+
+
+const clientImages = Object.values(
+  import.meta.glob("../../../assets/clients/*.{jpg,jpeg,png}", {
+    query: '?url',
+  import: 'default',
+  eager:true
+  })
+);
+
+const clientThumbnails = Object.values(
+  import.meta.glob("../../../assets/thumb*.{jpg,jpeg,png,webp}",{
+    query:'?url',
+    import:'default',
+    eager:true
+  })
+);
+
+const clientVideos = Object.keys(
+  import.meta.glob("../../../assets/clients/testimonial*.{mp4,webm}", {
+    query: '?url',
+    import: 'default',
+    eager: true
+  })
+)
+  .sort() // sorts alphabetically by filename
+  .map(key => import.meta.glob("../../../assets/clients/testimonial*.{mp4,webm}", {
+    query: '?url',
+    import: 'default',
+    eager: true
+  })[key]);
+
 
 const ClientTestimonials = () => {
   const [openVideo, setOpenVideo] = useState(null); // store current video URL
 
-  const videos = [
-    { id: 1, thumbnail: about, url: video1 },
-    { id: 2, thumbnail: about, url: video1 },
-    { id: 3, thumbnail: about, url: video1 },
-    { id: 4, thumbnail: about, url: video1 },
-  ];
 
-  const images = [
-   about,
-    about,
-    about,
-    about,
-    about,
-    about,
-  ];
+ const videos = clientVideos.map((url, index) => ({
+  id: index + 1,
+  url,
+  thumbnail: clientThumbnails[index]
+}));
 
   return (
     <div className="w-full h-full py-16 px-5 bg-[#f8f9fb]">
@@ -45,7 +66,7 @@ const ClientTestimonials = () => {
             <img
               src={video.thumbnail}
               alt="testimonial"
-              className="w-full h-72 object-cover"
+              className="w-full h-72 object-contain"
             />
 
             {/* Play button */}
@@ -58,12 +79,12 @@ const ClientTestimonials = () => {
 
       {/* Images Section */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((img, idx) => (
+        {clientImages.map((img, idx) => (
           <div
             key={idx}
             className="rounded-2xl overflow-hidden shadow-lg cursor-pointer"
           >
-            <img src={img} alt="patient" className="w-full h-80 object-cover" />
+            <img src={img} alt={`client-${idx}`} className="w-full h-80 object-cover" />
           </div>
         ))}
       </div>
@@ -99,3 +120,4 @@ const ClientTestimonials = () => {
 };
 
 export default ClientTestimonials;
+

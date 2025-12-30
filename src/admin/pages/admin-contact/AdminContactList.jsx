@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "../../../global_redux/features/contact/contactThunk";
-// import { getContacts } from "../../../global_redux/features/contact/contactThunk";
 
 const AdminContactList = () => {
   const dispatch = useDispatch();
@@ -11,9 +10,46 @@ const AdminContactList = () => {
     dispatch(getContacts());
   }, [dispatch]);
 
+  const filteredContacts = contacts.filter((c) => {
+  if (dateFilter === "all") return true;
+
+  const contactDate = new Date(c.createdAt);
+  const today = new Date();
+
+  if (dateFilter === "today") {
+    return contactDate.toDateString() === today.toDateString();
+  }
+
+  if (dateFilter === "7days") {
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(today.getDate() - 7);
+    return contactDate >= sevenDaysAgo;
+  }
+
+  if (dateFilter === "30days") {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(today.getDate() - 30);
+    return contactDate >= thirtyDaysAgo;
+  }
+
+  return true;
+});
+
+
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Contact Submissions</h2>
+
+        <select
+    value={dateFilter}
+    onChange={(e) => setDateFilter(e.target.value)}
+    className="border rounded px-3 py-2 text-sm"
+  >
+    <option value="all">All</option>
+    <option value="today">Today</option>
+    <option value="7days">Last 7 Days</option>
+    <option value="30days">Last 30 Days</option>
+  </select>
 
       {loading && <p>Loading...</p>}
 
@@ -35,7 +71,7 @@ const AdminContactList = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-200">
-              {contacts.map((c) => (
+              {filteredContacts.map((c) => (
                 <tr key={c._id} className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-medium">{c.name}</td>
                   <td className="px-4 py-3">{c.email}</td>

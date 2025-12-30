@@ -1,11 +1,28 @@
 import React from "react";
 import { Instagram, Facebook, Youtube, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from '../../assets/drsaab logo.png';
+
 
 const Footer = () => {
+
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Appointment", path: "/appointment" },
+
+  ];
+   const supportLinks= [
+    { name: "Help", path: "/help" },
+    { name: "Terms & Conditions", path: "/terms" },
+    { name: "Privacy Policy", path: "/privacypolicy" },
+    { name: "Contact Us", path: "/contact" },
+
+  ];
   return (
     <footer className="p-5">
-      <div className="relative rounded-2xl mx-auto bg-gradient-to-b from-[#1D2236] to-[#2B4CA4] py-20">
+      <div className="relative rounded-2xl mx-auto bg-gradient-to-b from-[#1D2236] to-[#2B4CA4] py-5">
 
         {/* Grid Overlay */}
         {/* <div
@@ -13,19 +30,15 @@ const Footer = () => {
           bg-[linear-gradient(#ffffff0c_1px,transparent_2px),linear-gradient(90deg,#ffffff0c_1px,transparent_2px)]
           bg-[size:30px_30px]"
         ></div> */}
-        
+
         {/* Content Grid */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-10 px-6">
 
           {/* Brand Section */}
-          <div className="space-y-6 lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-3xl">🦷</span>
-              </div>
-              <h2 className="text-2xl font-bold text-white">Denture</h2>
-            </div>
-
+          <div className="space-y-2 lg:col-span-4">
+           
+               <img src={logo} alt="Logo"  className="h-22 w-32 mb-2"/>
+           
             <p className="text-gray-300 text-base leading-relaxed max-w-sm">
               Comprehensive dental services, confident smiles through personalized care.
             </p>
@@ -33,7 +46,7 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex gap-3">
               {[
-                { icon: <Instagram size={20} />, link: "#" },
+                { icon: <Instagram size={20} />, link: "https://www.instagram.com/_doctor.saab_/?utm_source=qr&igsh=MTQ5MmZuNzZlcnlsYg%3D%3D#" },
                 { icon: <Facebook size={20} />, link: "#" },
                 { icon: <Twitter size={20} />, link: "#" },
                 { icon: <Youtube size={20} />, link: "#" },
@@ -53,13 +66,13 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h3 className="text-xl font-semibold text-white mb-5">Quick Links</h3>
             <ul className="space-y-3">
-              {["Home", "About Us", "Services", "Appointment"].map((item) => (
-                <li key={item}>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <Link
-                    to="#"
+                    to={link.path}
                     className="text-gray-300 hover:text-white text-base flex items-center gap-2 transition-colors"
                   >
-                    <span className="text-blue-300">•</span> {item}
+                    <span className="text-blue-300">•</span> {link.name}
                   </Link>
                 </li>
               ))}
@@ -70,14 +83,14 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h3 className="text-xl font-semibold text-white mb-5">Support</h3>
             <ul className="space-y-3">
-              {["Help", "Terms & Conditions", "Privacy Policy", "Contact Us"].map(
-                (item) => (
-                  <li key={item}>
+              {supportLinks.map(
+                (link) => (
+                  <li key={link.name}>
                     <Link
-                      to="#"
+                      to={link.path}
                       className="text-gray-300 hover:text-white text-base flex items-center gap-2 transition-colors"
                     >
-                      <span className="text-blue-300">•</span> {item}
+                      <span className="text-blue-300">•</span> {link.name}
                     </Link>
                   </li>
                 )

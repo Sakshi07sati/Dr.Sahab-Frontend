@@ -3,6 +3,7 @@ import { Menu, X, Calendar, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CartoonButton } from '../ui/cartoon-button';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/drsaab logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +48,7 @@ submenu: [
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-black">LOGO</h1>
+           <img src={logo} alt="Logo"  className="h-19 w-28" />
           </div>
 
           {/* Desktop Navigation */}

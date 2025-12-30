@@ -171,7 +171,7 @@ const DentistTestimonials = () => {
         {/* <button className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl">
           Book Your Appointment Today
         </button> */}
-        <CartoonButton label="Book Your Appointment Today" className='py-3 px-6 rounded-lg bg-primary font-medium text-white text-lg' />
+        <CartoonButton label="Book Your Appointment Today" to="/appointment" className='py-3 px-6 rounded-lg bg-primary font-medium text-white text-lg' />
       </div>
     </div>
   );

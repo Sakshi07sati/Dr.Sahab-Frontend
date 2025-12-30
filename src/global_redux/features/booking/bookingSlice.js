@@ -13,6 +13,7 @@ const bookingSlice = createSlice({
   name: "booking",
   initialState: {
     loading: false,
+    success: false,
     booking: null,
     bookings: [],
     pendingBookings: [],
@@ -24,7 +25,11 @@ const bookingSlice = createSlice({
     completedLoading: false,
   },
 
-  reducers: {},
+  reducers: {
+    resetBookingSucess: (state) =>{
+      state.success = false;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -32,14 +37,17 @@ const bookingSlice = createSlice({
       .addCase(createBooking.pending, (state) => {
         state.loading = true;
         state.error = null;
+        state.success = false;
       })
       .addCase(createBooking.fulfilled, (state, action) => {
         state.loading = false;
         state.booking = action.payload;
+        state.success= true;
       })
       .addCase(createBooking.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.success = false;
       })
 
       // ========== GET ALL BOOKINGS ==========
@@ -161,4 +169,5 @@ const bookingSlice = createSlice({
   },
 });
 
+export const {resetBookingSucess} = bookingSlice.actions;
 export default bookingSlice.reducer;

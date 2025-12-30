@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { CartoonButton } from "../../../components/ui/cartoon-button";
 import { useDispatch, useSelector } from "react-redux";
 import { createBooking } from "../../../global_redux/features/booking/bookingThunk";
 // import { createBooking } from "../../../redux/features/booking/bookingThunk";
+import { resetBookingSucess } from "../../../global_redux/features/booking/bookingSlice";
 
 const AppointmentForm = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.booking);
+  const { loading,success = false } = useSelector((state) => state.booking) || {};
 
   const [formData, setFormData] = useState({
     name: "",
@@ -39,6 +40,21 @@ const AppointmentForm = () => {
 
     dispatch(createBooking(payload));
   };
+//form reset after submit//
+   useEffect(()=>{
+if (success){
+  setFormData({
+     name: "",
+    phone: "",
+    dob: "",
+    bookingDate: "",
+    address: "",
+    message: "",
+  });
+  
+  dispatch(resetBookingSucess());
+}
+  },[success]);
 
   return (
     <div className="bg-[#f4f4f4c0] max-w-7xl mx-auto h-full backdrop-blur-xl rounded-3xl p-8 shadow-2xl overflow-y-auto ">

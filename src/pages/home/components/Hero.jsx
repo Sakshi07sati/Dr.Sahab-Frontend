@@ -53,6 +53,7 @@ const Hero = () => {
       </button> */}
           <CartoonButton
             label="Start Your Smile Journey"
+            to="/contact"
             className="bg-blue-600 text-sm md:text-lg rounded-2xl font-semibold text-white py-3 px-10"
           />
         </div>
@@ -72,35 +73,35 @@ const Hero = () => {
         >
           <AppointmentForm />
         </div>
-<motion.img
-  src={hero01}
-  alt=""
-  className="absolute top-10 md:top-40 left-10 w-12 h-12 md:w-20 md:h-20 rounded-3xl z-40"
-  initial={{ rotate: 45 }}   // <-- static rotate
-  animate={{
-    y: [0, -15, 0],          // <-- floating only
-  }}
-  transition={{
-    duration: 3,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
-/>
-<motion.img
-  src={hero02}
-  alt=""
-  className="absolute bottom-0 md:top-80 right-10 w-14 h-14 md:w-20 md:h-20 rounded-3xl z-40"
-  initial={{ rotate: 0 }}   // <-- static rotate
-  animate={{
-    y: [0, -15, 0],          // <-- floating only
-  }}
-  transition={{
-    duration: 3,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
-/>
-{/* <motion.img
+        <motion.img
+          src={hero01}
+          alt=""
+          className="absolute top-10 md:top-40 left-10 w-12 h-12 md:w-20 md:h-20 rounded-3xl z-40"
+          initial={{ rotate: 45 }}   // <-- static rotate
+          animate={{
+            y: [0, -15, 0],          // <-- floating only
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.img
+          src={hero02}
+          alt=""
+          className="absolute bottom-0 md:top-80 right-10 w-14 h-14 md:w-20 md:h-20 rounded-3xl z-40"
+          initial={{ rotate: 0 }}   // <-- static rotate
+          animate={{
+            y: [0, -15, 0],          // <-- floating only
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        {/* <motion.img
   src={hero04}
   alt=""
   className="absolute top-80 right-40 w-20 h-20 rounded-3xl z-50"

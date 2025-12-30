@@ -1,6 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom"; // ⚠️ Only if using React Router
-// import { servicesData } from "../../data/servicesData";
+import { useParams,Link } from "react-router-dom"; // ⚠️ Only if using React Router
 
 import {
   ArrowRight,
@@ -18,16 +17,23 @@ import img03 from "../../../assets/service/img03.png";
 import img04 from "../../../assets/service/img04.png";
 import img05 from "../../../assets/service/img05.png";
 import img06 from "../../../assets/service/img06.png";
-// import { servicesData } from "../../../data/servicesData";
 import Footer from "../../../components/common/Footer";
 import Navbar from "../../../components/common/Navbar";
 import { servicesData } from "../../../data/servicesData";
 import { CartoonButton } from "../../../components/ui/cartoon-button";
+import {useState, useEffect } from "react";
 
 const ServiceDetail = () => {
   const { id } = useParams(); // GET dynamic service ID: cosmetic, implants, whitening etc.
 
-  const currentService = servicesData[id];
+    const [currentService, setCurrentService] = useState(servicesData[id]);
+
+    useEffect(()=>{
+      setCurrentService(servicesData[id]);
+      window.scrollTo({top:100,behavior:"auto"});
+    },[id]);
+
+  // const currentService = servicesData[id];
 
   if (!currentService) {
     return (
@@ -37,24 +43,14 @@ const ServiceDetail = () => {
     );
   }
 
-  const otherServices = [
-  { name: "Dental Checkup & X-Rays", href: "/services/dental-checkup-x-rays" },
-  { name: "Orthodontics (Braces)", href: "/services/orthodontics-braces" },
-  { name: "Dental Implants", href: "/services/dental-implants" },
-  { name: "Crowns and Bridges", href: "/services/crowns-and-bridges" },
-  { name: "Root Canal Treatment (RCT)", href: "/services/root-canal-treatment-rct" },
-  { name: "Teeth Whitening & Bleaching", href: "/services/teeth-whitening-bleaching" },
-  { name: "Teeth Cleaning & Polishing", href: "/services/teeth-cleaning-polishing" },
-  { name: "Kids Dentistry", href: "/services/kids-dentistry" },
-  { name: "Wisdom Teeth Extraction", href: "/services/wisdom-teeth-extraction" },
-  // { name: "Tooth Colored Fillings", href: "/services/tooth-colored-fillings" },
-  // { name: "Aligners and Gum Surgery", href: "/services/aligners-gum-surgery" },
-  // { name: "Full Mouth Rehabilitation", href: "/services/full-mouth-rehabilitation" },
-  // { name: "Facial Aesthetic", href: "/services/facial-aesthetic" },
-  // { name: "Cosmetic & Laser Dental Treatment", href: "/services/cosmetic-laser-dental-treatment" },
-  // { name: "Dental Veneers and Laminates", href: "/services/dental-veneers-laminates" },
-  // { name: "Digital Dentistry", href: "/services/digital-dentistry" },
-]
+    const otherServices = Object.entries(servicesData)
+    .filter(([key]) => key !== id) // exclude current service
+    .map(([key, service]) => ({
+      id: key,
+      name: service.title,
+      href: `/services/${key}`
+    }));
+
 
   const contactInfo = {
     phone: "+1 234 567 890",
@@ -141,7 +137,7 @@ const ServiceDetail = () => {
               Book an Appointment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button> */}
-              <CartoonButton label="Book an Appointment" className="w-full py-4 mt-5 text-lg font-bold bg-primary text-white rounded-xl" />
+              <CartoonButton label="Book an Appointment"  to="/appointment" className="w-full py-4 mt-5 text-lg font-bold bg-primary text-white rounded-xl" />
             </div>
 
             {/* RIGHT SIDE (unchanged) */}
@@ -154,14 +150,14 @@ const ServiceDetail = () => {
                   </h3>
                   <div className="space-y-3">
                     {otherServices.map((service) => (
-                      <a
+                      <Link
                         key={service.id}
-                        href={service.href}
+                        to={service.href}
                         className="w-full bg-primary text-white py-3 px-4 rounded-xl flex items-center justify-between"
                       >
                         <span>{service.name}</span>
                         <ArrowRight className="w-5 h-5" />
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

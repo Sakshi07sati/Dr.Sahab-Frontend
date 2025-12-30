@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import {useNavigate} from "react-router-dom";
 
 export function CartoonButton({
   label,
@@ -7,10 +8,16 @@ export function CartoonButton({
   disabled = false,
   className = "",
   onClick,
+  to,
 }) {
+  const navigate = useNavigate();
   const handleClick = () => {
     if (disabled) return;
     onClick?.();
+
+    if(to){
+      navigate(to);
+    }
   };
 
   // Detect if user passed w-full
@@ -30,7 +37,7 @@ export function CartoonButton({
           relative flex items-center justify-center gap-2
           transition-all duration-150 overflow-hidden group
           ${color}
-          hover:shadow-[0_4px_0_0_#000]
+          hover:shadow-[0_4px_0_0_#000] 
           ${
             disabled
               ? "opacity-50 pointer-events-none"
@@ -44,9 +51,10 @@ export function CartoonButton({
 
         {hasHighlight && !disabled && (
           <div
-            className="absolute top-1/2 left-[-100%] w-16 h-24 bg-white/50 
-              -translate-y-1/2 rotate-12 transition-all duration-500 ease-in-out 
-              group-hover:left-[200%]"
+            className=" absolute top-1/2 left-[-200px] w-8 h-24 bg-white/30
+  -translate-x-1/2 -translate-y-1/2 rotate-12
+  transition-transform duration-[1000ms] ease-in-out
+  group-hover:translate-x-[600px]"
           ></div>
         )}
       </button>

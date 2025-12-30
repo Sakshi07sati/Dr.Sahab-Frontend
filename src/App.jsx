@@ -3,8 +3,8 @@ import { BrowserRouter } from "react-router-dom"
 import AllRoutes from "./routes/routes"
 import "./App.css";
 import { Toaster } from "react-hot-toast";
-// import ScrollToTop from "./component/ScrollToTop";
 // import TeezinesLoader from "./component/TeezinesLoader";
+import ScrollToTop from "./components/common/scrollToTop";
 import { useEffect, useState } from "react";
 // import { CategoryProvider } from "./context/CategoryContext";
 // import 'swiper/css';
@@ -30,7 +30,7 @@ const App = () => {
       {/* <CategoryProvider> */}
         <BrowserRouter>
          {/* {isLoading && <TeezinesLoader />} */}
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
           <AllRoutes />
            <Toaster
         position="bottom-right"   // 👈 this sets the toast position
